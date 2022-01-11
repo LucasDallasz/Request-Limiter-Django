@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Produtos</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Novo Produto</button>
+</form>
+{% if products %}
+    <ul>
+        {% for p in products %}
+        <li>{{ p }} <a href="{% url 'Product:delete' id=p.id %}">Excluir</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Ainda não tem produtos.</p>
+{% endif %}
+{% endblock %}
