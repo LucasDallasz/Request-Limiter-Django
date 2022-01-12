@@ -8,8 +8,8 @@ class RequestLimiterMiddleware:
     def __init__(self, get_response) -> None:
         self.get_response = get_response
         self.available_views = settings.AVAILABLE_VIEWS or []
-        self.min_request_time = settings.MIN_REQUEST_TIME or 2
-        self.punishment_requests = settings.PUNISHMENT_REQUESTS or 50
+        self.min_request_time = settings.MIN_REQUEST_TIME or 1.8
+        self.punishment_requests = settings.PUNISHMENT_REQUESTS or 100
     
     def __call__(self, request):
         response = self.get_response(request)
