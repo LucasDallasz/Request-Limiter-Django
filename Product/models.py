@@ -7,6 +7,6 @@ class Product(models.Model):
     user = models.ForeignKey('User.User', on_delete=models.CASCADE)
     
     def __str__(self) -> str:
-        return '%s | %s' % (self.name, self.user)
+        return '%s | %s' % (self.name, self.price)
     
     

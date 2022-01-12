@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'User',
     'Product',
+    'RequestLimiter',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'RequestLimiter.middleware.RequestLimiterMiddleware'
 ]
 
 ROOT_URLCONF = 'MyProject.urls'
@@ -129,3 +131,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AUTH USER MODEL 
 AUTH_USER_MODEL = 'User.User'
+
+
+
+# REQUEST LIMITER CONFIG #
+
+# ['user_login', 'user_logout']
+AVAILABLE_VIEWS = None
+
+# 2
+MIN_REQUEST_TIME = None
+
+# 50
+PUNISHMENT_REQUESTS = None
+
+# {'path': 'AppName/template.html', 'context': {'user': 'user'}}
+TEMPLATE_PATH = None

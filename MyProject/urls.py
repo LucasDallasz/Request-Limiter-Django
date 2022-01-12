@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('User.urls')),
     path('product/', include('Product.urls')),
+    path('request/', include('RequestLimiter.urls')),
 ]
